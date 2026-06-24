@@ -1,8 +1,10 @@
 import { Routes, Route } from 'react-router'
 import HomePage from '@/pages/HomePage'
 import ActivityPage from '@/pages/ActivityPage'
-import PairPage from '@/pages/PairPage'
+import RoomPage from '@/pages/RoomPage'
+import LeaderboardPage from '@/pages/LeaderboardPage'
 import HistoryPage from '@/pages/HistoryPage'
+import AwardPage from '@/pages/AwardPage'
 
 function App() {
   return (
@@ -10,8 +12,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/activity" element={<ActivityPage />} />
-        <Route path="/pair" element={<PairPage />} />
+        <Route path="/room" element={<RoomPage />} />
+        <Route path="/room/:code" element={<RoomPage />} />
+        <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/history" element={<HistoryPage />} />
+        <Route path="/awards" element={<AwardPage />} />
       </Routes>
     </div>
   )

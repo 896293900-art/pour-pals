@@ -1,10 +1,8 @@
 // ============================================
-// 咕嘟咕嘟 · 配置文件
-// 在这里自定义你的打卡项、标语、配对等
+// 浇个朋友 · 配置文件
 // ============================================
 
 const CONFIG = {
-  // ---- 基本信息 ----
   appName: '浇个朋友',
   appSubtitle: '喝水种树 · 互相报备 · 一起浇',
   appEmoji: '🌱',
@@ -13,7 +11,6 @@ const CONFIG = {
   water: {
     name: '喝水浇树',
     emoji: '💦',
-    // 每次喝水的量级选项
     amounts: [
       { ml: 100, label: '抿一口', icon: '💧' },
       { ml: 200, label: '小半杯', icon: '🥛' },
@@ -21,9 +18,7 @@ const CONFIG = {
       { ml: 500, label: '豪饮', icon: '🏋️' },
       { ml: 750, label: '吨吨吨', icon: '🌊' },
     ],
-    // 每日目标 (ml)
     dailyGoal: 2000,
-    // 喝水打卡随机标语（种树主题）
     slogans: [
       '今日份续命水已注入 💦',
       '你喝的不是水，是生命的温柔',
@@ -51,16 +46,14 @@ const CONFIG = {
     ],
   },
 
-  // ---- 报备模式：日常场景 ----
+  // ---- 报备模式 ----
   activities: [
-    // === 工作 ===
     { id: 'work', group: '工作', emoji: '💻', label: '在搬砖', abstract: '在用灵魂发电' },
     { id: 'meeting', group: '工作', emoji: '🎤', label: '在开会', abstract: '在表演认真听讲' },
     { id: 'email', group: '工作', emoji: '📧', label: '在回消息', abstract: '在信息洪流中划水' },
     { id: 'overtime', group: '工作', emoji: '🥲', label: '在加班', abstract: '在透支未来' },
     { id: 'commute', group: '工作', emoji: '🚇', label: '在通勤', abstract: '在人群中进行分子运动' },
 
-    // === 吃喝 ===
     { id: 'eat', group: '吃喝', emoji: '🍜', label: '在干饭', abstract: '在与碳水深度交流' },
     { id: 'cook', group: '吃喝', emoji: '👨‍🍳', label: '在做饭', abstract: '在扮演米其林大厨' },
     { id: 'snack', group: '吃喝', emoji: '🍿', label: '在吃零食', abstract: '在补充微量快乐' },
@@ -68,13 +61,11 @@ const CONFIG = {
     { id: 'tea', group: '吃喝', emoji: '🍵', label: '在喝茶', abstract: '在进行中年养生仪式' },
     { id: 'milktea', group: '吃喝', emoji: '🧋', label: '在喝奶茶', abstract: '在给生活加糖' },
 
-    // === 休息 ===
     { id: 'sleep', group: '休息', emoji: '😴', label: '在睡觉', abstract: '在充电恢复出厂设置' },
     { id: 'nap', group: '休息', emoji: '💤', label: '在午休', abstract: '在进行快速充电' },
     { id: 'chill', group: '休息', emoji: '🛋️', label: '在瘫着', abstract: '在练习人体工学' },
     { id: 'daze', group: '休息', emoji: '🌀', label: '在发呆', abstract: '在大脑待机模式' },
 
-    // === 娱乐 ===
     { id: 'game', group: '娱乐', emoji: '🎮', label: '在游戏', abstract: '在训练手眼协调能力' },
     { id: 'series', group: '娱乐', emoji: '📺', label: '在追剧', abstract: '在研究当代影视艺术' },
     { id: 'music', group: '娱乐', emoji: '🎵', label: '在听歌', abstract: '在用声波按摩耳膜' },
@@ -82,7 +73,6 @@ const CONFIG = {
     { id: 'scroll', group: '娱乐', emoji: '📱', label: '在刷手机', abstract: '在进行大拇指有氧运动' },
     { id: 'anime', group: '娱乐', emoji: '✨', label: '在看番', abstract: '在补充二次元能量' },
 
-    // === 运动 ===
     { id: 'walk', group: '运动', emoji: '🚶', label: '在散步', abstract: '在进行人类低功耗运动' },
     { id: 'run', group: '运动', emoji: '🏃', label: '在跑步', abstract: '在假装追赶夕阳' },
     { id: 'gym', group: '运动', emoji: '🏋️', label: '在健身', abstract: '在对抗地心引力' },
@@ -90,13 +80,11 @@ const CONFIG = {
     { id: 'bike', group: '运动', emoji: '🚴', label: '在骑车', abstract: '在用腿驱动世界' },
     { id: 'swim', group: '运动', emoji: '🏊', label: '在游泳', abstract: '在模拟鱼的一生' },
 
-    // === 学习 ===
     { id: 'read', group: '学习', emoji: '📖', label: '在看书', abstract: '在吸收前人的智慧结晶' },
     { id: 'study', group: '学习', emoji: '📝', label: '在学习', abstract: '在给大脑写入新数据' },
     { id: 'code', group: '学习', emoji: '⌨️', label: '在写代码', abstract: '在和编译器吵架' },
     { id: 'draw', group: '学习', emoji: '🎨', label: '在画画', abstract: '在让线条听话' },
 
-    // === 生活 ===
     { id: 'shop', group: '生活', emoji: '🛒', label: '在逛街', abstract: '在给GDP做微小贡献' },
     { id: 'clean', group: '生活', emoji: '🧹', label: '在打扫', abstract: '在和灰尘展开拉锯战' },
     { id: 'laundry', group: '生活', emoji: '👕', label: '在洗衣服', abstract: '在进行布料净化仪式' },
@@ -104,13 +92,11 @@ const CONFIG = {
     { id: 'bath', group: '生活', emoji: '🛁', label: '在洗澡', abstract: '在进行人类自清洁程序' },
     { id: 'toilet', group: '生活', emoji: '🚽', label: '在洗手间', abstract: '在进行必要的生理排放' },
 
-    // === 社交 ===
     { id: 'chat', group: '社交', emoji: '💬', label: '在聊天', abstract: '在进行信息交换仪式' },
     { id: 'date', group: '社交', emoji: '💕', label: '在约会', abstract: '在进行人类求偶行为' },
     { id: 'hangout', group: '社交', emoji: '🍻', label: '在聚会', abstract: '在进行碳基生物连接' },
     { id: 'call', group: '社交', emoji: '📞', label: '在通话', abstract: '在用声波跨越空间' },
 
-    // === 情绪 ===
     { id: 'think', group: '状态', emoji: '🤔', label: '在思考人生', abstract: '在思考宇宙的终极答案' },
     { id: 'anxious', group: '状态', emoji: '😰', label: '有点焦虑', abstract: '在模拟仓鼠跑轮' },
     { id: 'happy', group: '状态', emoji: '😄', label: '很开心', abstract: '多巴胺溢出中' },
@@ -121,7 +107,6 @@ const CONFIG = {
     { id: 'existential', group: '状态', emoji: '🌌', label: '在思考存在', abstract: '我思故我在…大概' },
   ],
 
-  // ---- 报备模式随机标语 ----
   activitySlogans: [
     '行踪已报备，请查收 📍',
     '你的眼线已上线',
@@ -137,13 +122,8 @@ const CONFIG = {
     '今日行踪透明度：100%',
   ],
 
-  // ---- 配对 ----
-  // 配对通过 localStorage 本地管理，不需要服务端
-  // pairCode: 生成一个唯一码分享给对方即可配对
-
   // ---- 上火提醒（树枯萎警告）----
   fireWarning: {
-    // 超过这个分钟数没喝水就提醒
     thresholdMinutes: 180,
     messages: [
       '你已经好久没浇水了，小树快枯了⚠️',
@@ -156,18 +136,8 @@ const CONFIG = {
     ],
   },
 
-  // ---- 主题色（可自定义）----
-  theme: {
-    cream: '#FFF8F0',
-    mint: '#7ECEC1',
-    peach: '#FFB199',
-    lavender: '#C4B5E0',
-    text: '#3D3244',
-  },
-
   // ---- 种树主题 ----
   tree: {
-    // 喝水 = 浇树，连续打卡天数 = 树龄
     stages: [
       { days: 0, emoji: '🌱', label: '种子' },
       { days: 1, emoji: '🌿', label: '嫩芽' },
@@ -178,10 +148,52 @@ const CONFIG = {
       { days: 60, emoji: '🏔️', label: '参天古木' },
       { days: 100, emoji: '🌟', label: '神树降临' },
     ],
-    // 树的状态文案
     growSlogan: '你的树又长高了一点 🌿',
     wiltSlogan: '你的树在等你回来浇水 🥀',
     pairGrowSlogan: '两个人浇的树，比一个人高 🌳',
+  },
+
+  // ---- 🏆 虚拟奖状系统 ----
+  awards: {
+    // 每日排行榜奖状（根据当日排名）
+    daily: [
+      { rank: 1, title: '水利局局长', emoji: '👔', desc: '今日浇水冠军，号召力拉满' },
+      { rank: 2, title: '水务局副局长', emoji: '📋', desc: '稳坐二把手，绝不缺勤' },
+      { rank: 3, title: '灌溉科科长', emoji: '💧', desc: '科里的水都是你浇的' },
+    ],
+    // 特殊成就奖状
+    special: [
+      { id: 'first_water', title: '开闸元勋', emoji: '🏅', desc: '圈子里第一个喝水的人', condition: 'room中当日第一个打卡' },
+      { id: 'early_bird', title: '晨露采集者', emoji: '🌅', desc: '6点前就开始浇水', condition: '在6:00前打卡' },
+      { id: 'night_owl', title: '深夜灌溉师', emoji: '🦉', desc: '23点后还在浇水', condition: '在23:00后打卡' },
+      { id: 'streak_7', title: '七日园丁', emoji: '🌻', desc: '连续7天浇水不中断', condition: '连续7天打卡' },
+      { id: 'streak_30', title: '月度造林标兵', emoji: '🌲', desc: '连续30天，你种了一片林', condition: '连续30天打卡' },
+      { id: 'streak_100', title: '百年树人', emoji: '🏛️', desc: '100天！你是树神', condition: '连续100天打卡' },
+      { id: 'big_sip', title: '吨吨吨大王', emoji: '🌊', desc: '单次喝水750ml', condition: '选择吨吨吨选项' },
+      { id: 'goal_hit', title: '达标达人', emoji: '🎯', desc: '今日喝水目标达成', condition: '达到每日目标' },
+      { id: 'social', title: '群众演员', emoji: '🎭', desc: '报备了5种不同的活动', condition: '当日报备5种' },
+      { id: 'fire_warning', title: '火场逃生', emoji: '🚒', desc: '收到上火警告后立刻喝水', condition: '被警告后5分钟内喝水' },
+      { id: 'share', title: '传教士', emoji: '📢', desc: '邀请了新朋友进圈', condition: '有人通过你的链接加入' },
+      { id: 'bored', title: '摸鱼冠军', emoji: '🐟', desc: '连续3次报备"在摸鱼"', condition: '当日3次摸鱼' },
+      { id: 'philosopher', title: '存在主义大师', emoji: '🌌', desc: '报备了"在思考存在"', condition: '选择思考存在选项' },
+      { id: 'midnight_snack', title: '深夜食堂', emoji: '🍜', desc: '22点后报备"在干饭"', condition: '22点后选干饭' },
+    ],
+    // 奖状模板文字
+    certificate: {
+      header: '浇个朋友 · 荣誉奖状',
+      body: '兹证明 {name} 同志',
+      footer: '特此表彰，以资鼓励 🏆',
+      stamp: '浇水委员会',
+    },
+  },
+
+  // ---- 主题色 ----
+  theme: {
+    cream: '#FFF8F0',
+    mint: '#7ECEC1',
+    peach: '#FFB199',
+    lavender: '#C4B5E0',
+    text: '#3D3244',
   },
 }
 
