@@ -1,79 +1,99 @@
-# 咕嘟咕嘟 · Sip Together 💧
+# 浇个朋友 💦🌱
 
-喝水打卡 · 互相报备 · 一起咕嘟
+喝水种树 · 互相报备 · 一起浇
 
-一个可爱治愈的喝水打卡 + 日常报备小应用，适合情侣和好朋友互相报备。
+一个可爱治愈的喝水种树 + 日常报备 + 小圈子互动应用。
 
 ## ✨ 功能
 
-- **💧 喝水打卡** — 点一下咕嘟，记录每次喝水量，环形进度条追踪每日目标，随机跳出治愈/抽象标语
-- **📍 日常报备** — 40+ 预设场景（工作/吃喝/休息/娱乐/运动/学习/生活/社交/情绪），每个都有正经名和抽象描述，还可以自定义
-- **🔥 连续打卡** — 连续喝水天数，上火提醒（3小时没喝水就警告）
-- **💕 配对** — 生成配对码和朋友/伴侣连接，互相导入数据查看对方动态
-- **📊 历史** — 按日分组的时间线，累计统计，数据导出备份
-
-## 🎨 设计风格
-
-暖奶油底色 + 薄荷绿主色 + 蜜桃粉点缀，手绘感圆润组件，浮动装饰动画，日系可爱风。
+- **💦 喝水种树** — 点一下浇树，环形进度追踪每日目标，随机跳出治愈/抽象标语
+- **📍 日常报备** — 40+ 预设场景 + 自定义，每个都有正经名和抽象描述
+- **🌳 树成长体系** — 连续喝水天数 = 树龄，🌱种子→🌿嫩芽→🪴盆栽→🌲小树→🌳大树→🏔️参天古木→🌟神树降临
+- **🔥 上火提醒** — 3小时没浇水小树枯了，你的树说：我渴了 🥀
+- **💦 浇水圈** — 建圈发链接，朋友点开直接进，不用注册
+- **🏆 实时排行榜** — 今日谁浇最多，谁就是水利局局长
+- **🏅 虚拟奖状** — 排行榜前三自动获封：
+  - 🥇 **水利局局长** — 今日浇水冠军
+  - 🥈 **水务局副局长** — 稳坐二把手
+  - 🥉 **灌溉科科长** — 科里的水都是你浇的
+  - + 14种特殊成就奖状：开闸元勋、晨露采集者、吨吨吨大王、摸鱼冠军、存在主义大师…
+- **📊 历史记录** — 按日分组时间线，累计统计
 
 ## 🛠 技术栈
 
 - React 18 + TypeScript
-- Vite 7
-- TailwindCSS v4
-- Zustand（状态管理）
-- 纯 localStorage 存储，无需后端
-- 无登录，无注册，开箱即用
+- Vite 7 + TailwindCSS v4
+- Firebase（匿名登录 + Firestore 实时同步）
+- Zustand 状态管理
 
-## 🚀 本地开发
+## 🚀 部署
+
+### 1. 创建 Firebase 项目
+
+1. 去 [Firebase Console](https://console.firebase.google.com/) 创建项目
+2. 添加 Web 应用，复制配置
+3. 开启 **Authentication** → 匿名登录
+4. 开启 **Firestore Database** → 测试模式（或配置安全规则）
+
+### 2. 配置环境变量
+
+创建 `.env.local`：
+
+```
+VITE_FIREBASE_API_KEY=你的key
+VITE_FIREBASE_AUTH_DOMAIN=你的项目.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=你的项目id
+VITE_FIREBASE_STORAGE_BUCKET=你的项目.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=你的senderId
+VITE_FIREBASE_APP_ID=你的appId
+```
+
+### 3. 本地开发
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 📦 构建
+### 4. 部署到 GitHub Pages
 
 ```bash
+# vite.config.ts 中设置 base: '/<仓库名>/'
 npm run build
-# 产物在 dist/ 目录，可直接部署到任何静态托管
+# 推送 dist 目录
 ```
-
-## 🌐 部署到 GitHub Pages
-
-1. 在 `vite.config.ts` 中设置 `base: '/<repo-name>/'`
-2. 推送代码到 GitHub
-3. 在仓库 Settings → Pages → Source 选 `dist` 目录
-4. 或者用 GitHub Actions 自动部署
 
 ## ⚙️ 自定义配置
 
-所有可自定义内容在 `src/lib/config.ts`：
+`src/lib/config.ts` 包含所有可自定义内容：
 
-- **标语库**：`water.slogans`（喝水标语）、`activitySlogans`（报备标语）
-- **场景选项**：`activities` 数组，每个有 `group`/`emoji`/`label`/`abstract`
+- **标语库**：`water.slogans`、`activitySlogans`
+- **场景选项**：`activities` 数组（9大类40+选项）
 - **每日目标**：`water.dailyGoal`（默认 2000ml）
-- **上火提醒**：`fireWarning.thresholdMinutes`（默认 180 分钟）
-- **主题色**：`theme` 对象
+- **上火提醒**：`fireWarning`
+- **奖状系统**：`awards.daily`（排行奖状）、`awards.special`（特殊成就）
+- **树成长**：`tree.stages`
+- **主题色**：`theme`
 
 ## 📁 项目结构
 
 ```
 src/
 ├── lib/
-│   ├── config.ts    ← 所有配置（场景、标语、主题色）
-│   ├── store.ts     ← Zustand 状态管理 + localStorage
-│   └── utils.ts     ← cn() 工具函数
+│   ├── config.ts     ← 所有配置
+│   ├── firebase.ts   ← Firebase 初始化
+│   ├── store.ts      ← Zustand 状态 + Firestore 交互
+│   └── utils.ts      ← cn() 工具
 ├── pages/
-│   ├── HomePage.tsx      ← 首页（喝水 + 动态流）
-│   ├── ActivityPage.tsx  ← 报备选择页
-│   ├── PairPage.tsx      ← 配对页
-│   └── HistoryPage.tsx   ← 历史记录页
-├── App.tsx          ← 路由
-├── main.tsx         ← 入口
-└── index.css        ← 全局样式 + 动画
+│   ├── HomePage.tsx       ← 首页
+│   ├── ActivityPage.tsx   ← 报备选择
+│   ├── RoomPage.tsx       ← 圈子/建圈/加圈
+│   ├── LeaderboardPage.tsx← 排行榜 + 局长
+│   ├── AwardPage.tsx      ← 虚拟奖状
+│   └── HistoryPage.tsx    ← 历史记录
+└── App.tsx           ← 路由
 ```
 
 ## License
 
-MIT — 随便用，咕嘟咕嘟
+MIT — 随便浇，随便种 🌱
