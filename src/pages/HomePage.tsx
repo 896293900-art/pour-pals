@@ -4,6 +4,31 @@ import { useAppStore } from '@/lib/store'
 import CONFIG from '@/lib/config'
 import type { CheckIn } from '@/lib/store'
 
+// ---- Tree display based on streak ----
+function TreeDisplay() {
+  const getStreak = useAppStore(s => s.getStreak)
+  const streak = getStreak()
+  const stages = CONFIG.tree.stages
+
+  // Find current tree stage
+  let current = stages[0]
+  for (const s of stages) {
+    if (streak >= s.days) current = s
+  }
+
+  return (
+    <div className="flex flex-col items-center gap-1">
+      <span className={`text-5xl ${streak > 0 ? 'animate-breathe' : ''}`}>
+        {current.emoji}
+      </span>
+      <span className="text-xs font-bold text-text-light">{current.label}</span>
+      {streak > 0 && (
+        <span className="text-[10px] text-text-muted">已连续浇水 {streak} 天</span>
+      )}
+    </div>
+  )
+}
+
 // ---- Water check-in button ----
 function WaterCheckIn() {
   const [selectedAmount, setSelectedAmount] = useState(2) // default: 一整杯
@@ -84,9 +109,9 @@ function WaterCheckIn() {
             ${animating ? 'animate-wiggle' : 'hover:shadow-2xl'}
           `}
         >
-          💧
+          💦
         </button>
-        <p className="text-sm font-bold text-text-light mt-2">咕嘟一下</p>
+        <p className="text-sm font-bold text-text-light mt-2">浇一下</p>
       </div>
 
       {/* Slogan pop */}
@@ -109,7 +134,7 @@ function CheckInItem({ checkIn, isPartner }: { checkIn: CheckIn; isPartner?: boo
   return (
     <div className={`flex items-start gap-3 animate-fade-in-up ${isPartner ? 'opacity-80' : ''}`}>
       <div className="flex flex-col items-center">
-        <span className="text-xl">{checkIn.type === 'water' ? '💧' : (CONFIG.activities.find(a => a.label === checkIn.content)?.emoji || '📍')}</span>
+        <span className="text-xl">{checkIn.type === 'water' ? '💦' : (CONFIG.activities.find(a => a.label === checkIn.content)?.emoji || '📍')}</span>
         <div className="w-px h-full bg-cream-deep mt-1" />
       </div>
       <div className="flex-1 min-w-0">
@@ -209,10 +234,9 @@ export default function HomePage() {
                 focus:border-mint focus:outline-none text-sm transition-colors"
               autoFocus
             />
-            <button onClick={handleNameSubmit}
-              className="w-full py-2.5 bg-mint text-white font-bold rounded-xl
+            <button className="w-full py-2.5 bg-mint text-white font-bold rounded-xl
                 hover:bg-mint-dark active:scale-95 transition-all shadow-md shadow-mint/20">
-              好了，开始咕嘟 💧
+              好了，开始浇水 🌱
             </button>
           </div>
         </div>
@@ -229,6 +253,11 @@ export default function HomePage() {
         </div>
       </header>
 
+      {/* Tree display */}
+      <div className="px-6 mb-4 relative z-10">
+        <TreeDisplay />
+      </div>
+
       {/* Fire warning */}
       <div className="px-6 mb-4 relative z-10">
         <FireWarning />
@@ -240,7 +269,7 @@ export default function HomePage() {
           <button onClick={() => setTab('water')}
             className={`flex-1 py-2 rounded-xl text-sm font-bold transition-all
               ${tab === 'water' ? 'bg-mint text-white shadow-md' : 'text-text-light'}`}>
-            💧 喝水
+            💦 浇树
           </button>
           <button onClick={() => setTab('feed')}
             className={`flex-1 py-2 rounded-xl text-sm font-bold transition-all
@@ -283,7 +312,7 @@ export default function HomePage() {
         <div className="max-w-lg mx-auto flex justify-around py-2">
           <Link to="/" className="flex flex-col items-center gap-0.5 text-mint">
             <span className="text-xl">💧</span>
-            <span className="text-[10px] font-bold">首页</span>
+            <span className="text-[10px] font-bold">浇水</span>
           </Link>
           <Link to="/activity" className="flex flex-col items-center gap-0.5 text-text-muted hover:text-peach transition-colors">
             <span className="text-xl">📍</span>

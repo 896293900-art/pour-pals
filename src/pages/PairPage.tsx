@@ -53,7 +53,7 @@ export default function PairPage() {
             💕 配对
           </h1>
         </div>
-        <p className="text-xs text-text-muted mt-1">和你的那个人一起咕嘟</p>
+        <p className="text-xs text-text-muted mt-1">和你的那个人一起浇树</p>
       </header>
 
       <div className="px-6 space-y-5 relative z-10">
@@ -170,7 +170,7 @@ export default function PairPage() {
             <p>1. 你和对方都生成配对码</p>
             <p>2. 互相交换码并输入对方的名字</p>
             <p>3. 配对成功后，可以互相导出/导入打卡数据</p>
-            <p>4. 在首页「报备动态」tab 看到对方今天的打卡</p>
+            <p>4. 在浇水「报备动态」tab 看到对方今天的打卡</p>
             <p className="text-text-muted italic mt-2">
               💡 数据存在浏览器本地，通过导出/导入来同步对方的动态
             </p>
@@ -183,7 +183,7 @@ export default function PairPage() {
         <div className="max-w-lg mx-auto flex justify-around py-2">
           <Link to="/" className="flex flex-col items-center gap-0.5 text-text-muted hover:text-mint transition-colors">
             <span className="text-xl">💧</span>
-            <span className="text-[10px] font-bold">首页</span>
+            <span className="text-[10px] font-bold">浇水</span>
           </Link>
           <Link to="/activity" className="flex flex-col items-center gap-0.5 text-text-muted hover:text-peach transition-colors">
             <span className="text-xl">📍</span>

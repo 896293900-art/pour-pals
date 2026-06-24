@@ -128,7 +128,7 @@ export default function ActivityPage() {
         <div className="max-w-lg mx-auto flex justify-around py-2">
           <Link to="/" className="flex flex-col items-center gap-0.5 text-text-muted hover:text-mint transition-colors">
             <span className="text-xl">💧</span>
-            <span className="text-[10px] font-bold">首页</span>
+            <span className="text-[10px] font-bold">浇水</span>
           </Link>
           <Link to="/activity" className="flex flex-col items-center gap-0.5 text-peach">
             <span className="text-xl">📍</span>

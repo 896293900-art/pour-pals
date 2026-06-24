@@ -67,14 +67,14 @@ export default function HistoryPage() {
       <div className="px-6 mb-5 relative z-10">
         <div className="grid grid-cols-3 gap-3">
           <div className="glass-card p-3 text-center">
-            <span className="text-2xl">🔥</span>
+            <span className="text-2xl">🌳</span>
             <p className="text-xl font-black text-coral">{streak}</p>
-            <p className="text-[10px] text-text-muted">天连续</p>
+            <p className="text-[10px] text-text-muted">天浇树</p>
           </div>
           <div className="glass-card p-3 text-center">
-            <span className="text-2xl">💧</span>
+            <span className="text-2xl">💦</span>
             <p className="text-xl font-black text-mint-dark">{(totalWater / 1000).toFixed(1)}L</p>
-            <p className="text-[10px] text-text-muted">累计喝水</p>
+            <p className="text-[10px] text-text-muted">累计浇树</p>
           </div>
           <div className="glass-card p-3 text-center">
             <span className="text-2xl">📍</span>
@@ -82,7 +82,7 @@ export default function HistoryPage() {
             <p className="text-[10px] text-text-muted">次打卡</p>
           </div>
         </div>
-        <p className="text-[10px] text-text-muted text-center mt-2">跨越 {totalDays} 天的咕嘟记录</p>
+        <p className="text-[10px] text-text-muted text-center mt-2">跨越.*天的浇树记录</p>
       </div>
 
       {/* Filter */}
@@ -92,7 +92,7 @@ export default function HistoryPage() {
             <button key={f} onClick={() => setFilter(f)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all
                 ${filter === f ? 'bg-mint text-white shadow-md' : 'bg-white/60 text-text-light'}`}>
-              {f === 'all' ? '📋 全部' : f === 'water' ? '💧 喝水' : '📍 报备'}
+              {f === 'all' ? '📋 全部' : f === 'water' ? '💦 喝水' : '📍 报备'}
             </button>
           ))}
         </div>
@@ -110,7 +110,7 @@ export default function HistoryPage() {
               {items.map(c => {
                 const time = new Date(c.timestamp)
                 const timeStr = `${String(time.getHours()).padStart(2,'0')}:${String(time.getMinutes()).padStart(2,'0')}`
-                const activityEmoji = c.type === 'water' ? '💧' : (CONFIG.activities.find(a => a.label === c.content)?.emoji || '📍')
+                const activityEmoji = c.type === 'water' ? '💦' : (CONFIG.activities.find(a => a.label === c.content)?.emoji || '📍')
                 return (
                   <div key={c.id} className="flex items-center gap-3 bg-white/60 rounded-xl px-3 py-2 group">
                     <span className="text-lg">{activityEmoji}</span>
@@ -173,8 +173,8 @@ export default function HistoryPage() {
       <nav className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-t border-cream-deep z-40">
         <div className="max-w-lg mx-auto flex justify-around py-2">
           <Link to="/" className="flex flex-col items-center gap-0.5 text-text-muted hover:text-mint transition-colors">
-            <span className="text-xl">💧</span>
-            <span className="text-[10px] font-bold">首页</span>
+            <span className="text-xl">💦</span>
+            <span className="text-[10px] font-bold">浇水</span>
           </Link>
           <Link to="/activity" className="flex flex-col items-center gap-0.5 text-text-muted hover:text-peach transition-colors">
             <span className="text-xl">📍</span>
