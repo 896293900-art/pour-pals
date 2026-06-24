@@ -1,6 +1,0 @@
-node_modules/
-dist/
-.env.local
-.DS_Store
-appwrite-cf.config.json
-.static-site-deploy.json
